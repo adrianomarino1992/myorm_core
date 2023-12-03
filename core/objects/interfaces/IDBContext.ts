@@ -1,8 +1,8 @@
-import IDBSet from './IDBSet';
+import IBaseSet from './IDBSet';
 import IStatement from './IStatement';
-export default interface IDBContext
+export interface IBaseContext
 {
-    Collection<T extends Object>(cTor : {new (...args : any[]) : T}) : IDBSet<T> | undefined;
+    Collection<T extends Object>(cTor : {new (...args : any[]) : T}) : IBaseSet<T> | undefined;
     UpdateDatabaseAsync() : Promise<void>;
     ExecuteNonQuery(query : string) : Promise<void>;
     ExecuteQuery(query : string) : Promise<any>;        
@@ -30,3 +30,6 @@ export interface IJoinSelectable<T>
     OrderBy<K extends keyof T>(key : K) : IJoinSelectable<T>;    
     OrderDescendingBy<K extends keyof T>(key : K) : IJoinSelectable<T>;    
 }
+
+
+export default interface IDBContext extends IBaseContext, IThreeQueryableObject{}

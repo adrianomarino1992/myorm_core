@@ -1,24 +1,24 @@
 import IStatement from "./IStatement";
 
 
-export default interface IDBSet<T extends Object>
+export interface IBaseSet<T extends Object>
 {
     AddAsync(obj : T) : Promise<T>;
     UpdateAsync(obj : T) : Promise<T>;
     UpdateSelectionAsync() : Promise<void>;
-    Set<K extends keyof T>(key: K, value : T[K]) : IDBSet<T>;
+    Set<K extends keyof T>(key: K, value : T[K]) : IBaseSet<T>;
     UpdateObjectAndRelationsAsync(obj : T, relations : (keyof T)[]) : Promise<T>;
     DeleteAsync(obj : T) : Promise<T>;
     DeleteSelectionAsync() : Promise<void>;
-    Where<K extends keyof T>(statement : IStatement<T, K>) : IDBSet<T>;
-    And<K extends keyof T>(statement : IStatement<T, K>) : IDBSet<T>;
-    Or<K extends keyof T>(statement : IStatement<T, K>) : IDBSet<T>;
-    OrderBy<K extends keyof T>(key : K) : IDBSet<T>;    
-    OrderDescendingBy<K extends keyof T>(key : K) : IDBSet<T>;
-    Take(quantity : number) : IDBSet<T>;
-    Offset(offset : number) : IDBSet<T>;
-    Join<K extends keyof T>(key : K) : IDBSet<T>;
-    Limit(limit : number) : IDBSet<T>;
+    Where<K extends keyof T>(statement : IStatement<T, K>) : IBaseSet<T>;
+    And<K extends keyof T>(statement : IStatement<T, K>) : IBaseSet<T>;
+    Or<K extends keyof T>(statement : IStatement<T, K>) : IBaseSet<T>;
+    OrderBy<K extends keyof T>(key : K) : IBaseSet<T>;    
+    OrderDescendingBy<K extends keyof T>(key : K) : IBaseSet<T>;
+    Take(quantity : number) : IBaseSet<T>;
+    Offset(offset : number) : IBaseSet<T>;
+    Join<K extends keyof T>(key : K) : IBaseSet<T>;
+    Limit(limit : number) : IBaseSet<T>;
     CountAsync() : Promise<number>;
     ToListAsync() : Promise<T[]>;
     FirstOrDefaultAsync() : Promise<T | undefined>;
@@ -48,3 +48,5 @@ export interface IFluentField<T extends Object, K extends keyof T, R extends IDB
     EndsWith(value : T[K]) : R;
     IsNull() : R;    
 }
+
+export default interface IDBSet<T extends object> extends IBaseSet<T>, IFluentQueryableObject<T, IDBSet<T>>{}

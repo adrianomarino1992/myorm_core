@@ -4,9 +4,9 @@ import AbstractContext from "./objects/abstract/AbstractContext";
 import AbstractFluentField from "./objects/abstract/AbstractFluentField";
 import AbstractManager from "./objects/abstract/AbstractManager";
 import IDBConnection from "./objects/interfaces/IDBConnection";
-import IDBContext from "./objects/interfaces/IDBContext";
+import IDBContext, {IBaseContext} from "./objects/interfaces/IDBContext";
 import IDBManager from "./objects/interfaces/IDBManager";
-import IDBSet from "./objects/interfaces/IDBSet";
+import IDBSet, {IBaseSet} from "./objects/interfaces/IDBSet";
 import { IFluentField } from "./objects/interfaces/IDBSet";
 import { IFluentQueryableObject } from "./objects/interfaces/IDBSet";   
 import { IJoinSelectable } from "./objects/interfaces/IDBContext";  
@@ -23,8 +23,10 @@ export {AbstractFluentField}
 export {AbstractManager}
 export {IDBConnection}
 export {IDBContext}
+export {IBaseContext}
 export {IDBManager}
 export {IDBSet}
+export {IBaseSet}
 export {IFluentField}
 export {IFluentQueryableObject}
 export {IJoinSelectable}

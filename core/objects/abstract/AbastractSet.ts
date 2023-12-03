@@ -1,7 +1,7 @@
 import IDBSet, { IFluentField, IFluentQueryableObject } from "../interfaces/IDBSet";
 import IStatement from "../interfaces/IStatement";
 
-export default abstract class AbstractSet<T extends object> implements IDBSet<T> , IFluentQueryableObject<T, AbstractSet<T>>
+export default abstract class AbstractSet<T extends object> implements IDBSet<T> 
 {
     abstract AddAsync(obj: T): Promise<T> ;
     abstract UpdateAsync(obj: T): Promise<T> ;

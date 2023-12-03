@@ -2,7 +2,7 @@ import IDBContext, { IJoiningQuery, IThreeQueryableObject } from "../interfaces/
 import AbstractSet from "./AbastractSet";
 
 
-export default abstract class AbstractContext implements IDBContext , IThreeQueryableObject
+export default abstract class AbstractContext implements IDBContext 
 {
     abstract Collection<T extends Object>(cTor: new (...args: any[]) => T): AbstractSet<T>;
     abstract UpdateDatabaseAsync(): Promise<void> ;
