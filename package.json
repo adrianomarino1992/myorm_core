@@ -1,0 +1,31 @@
+{
+  "name": "myorm_core",
+  "version": "1.0.0",
+  "description": "interfaces and abstract classes of myorm",
+  "main": "./lib/Index.js",
+  "types": "./lib/Index.d.ts",
+  "files": [
+    "./lib",
+    "README.md"
+  ],
+  "readme": "README.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianomarino1992/myorm_core.git"
+  },
+  "keywords": [
+    "myorm"
+  ],
+  "author": "adriano.marino1992@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianomarino1992/myorm_core/issues"
+  },
+  "homepage": "https://github.com/adrianomarino1992/myorm_core#readme",
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  }
+}
