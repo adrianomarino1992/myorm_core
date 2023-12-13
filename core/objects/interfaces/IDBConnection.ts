@@ -8,10 +8,10 @@ export default interface IDBConnection
     UserName : string;
     PassWord : string;    
     IsOpen : boolean;
-    Open() : Promise<void>;
-    Query(query : string) : Promise<any>;
-    Close() : void;
-    ExecuteNonQuery(query : string) : Promise<void>;    
-    Execute(query : string) : Promise<any>;
+    OpenAsync() : Promise<void>;
+    QueryAsync(query : string) : Promise<any>;
+    CloseAsync() : void;
+    ExecuteNonQueryAsync(query : string) : Promise<void>;    
+    ExecuteAsync(query : string) : Promise<any>;
      
 }

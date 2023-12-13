@@ -8,10 +8,10 @@ export default abstract class AbstractConnection implements IDBConnection
     abstract UserName: string;
     abstract PassWord: string;
     abstract IsOpen: boolean;
-    abstract Open(): Promise<void> ;
-    abstract Query(query: string): Promise<any>;
-    abstract Close(): void ;
-    abstract ExecuteNonQuery(query: string): Promise<void> ;
-    abstract Execute(query: string): Promise<any> ;
+    abstract OpenAsync(): Promise<void> ;
+    abstract QueryAsync(query: string): Promise<any>;
+    abstract CloseAsync(): void ;
+    abstract ExecuteNonQueryAsync(query: string): Promise<void> ;
+    abstract ExecuteAsync(query: string): Promise<any> ;
     
 }
