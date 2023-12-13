@@ -1,6 +1,6 @@
 {
   "name": "myorm_core",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "interfaces and abstract classes of myorm",
   "main": "./lib/Index.js",
   "types": "./lib/Index.d.ts",
