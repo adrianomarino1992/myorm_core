@@ -4,6 +4,7 @@ import IStatement from "./IStatement";
 export interface IBaseSet<T extends Object>
 {
     AddAsync(obj : T) : Promise<T>;
+    AddObjectAndRelationsAsync(obj : T, relations : (keyof T)[]) : Promise<T>;
     UpdateAsync(obj : T) : Promise<T>;
     UpdateSelectionAsync() : Promise<void>;
     Set<K extends keyof T>(key: K, value : T[K]) : IBaseSet<T>;

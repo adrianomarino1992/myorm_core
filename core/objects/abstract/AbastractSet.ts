@@ -4,6 +4,7 @@ import IStatement from "../interfaces/IStatement";
 export default abstract class AbstractSet<T extends object> implements IDBSet<T> 
 {
     abstract AddAsync(obj: T): Promise<T> ;
+    abstract AddObjectAndRelationsAsync(obj: T, relations: (keyof T)[]): Promise<T> ;
     abstract UpdateAsync(obj: T): Promise<T> ;
     abstract UpdateSelectionAsync(): Promise<void> ;
     abstract Set<K extends keyof T>(key: K, value: T[K]): AbstractSet<T>;
