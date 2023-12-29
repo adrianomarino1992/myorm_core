@@ -28,7 +28,14 @@ export interface IJoinSelectable<T>
     FirstOrDefaultAsync() : Promise<T | undefined>;
     Join<K extends keyof T>(key : K) : IJoinSelectable<T>;
     OrderBy<K extends keyof T>(key : K) : IJoinSelectable<T>;    
-    OrderDescendingBy<K extends keyof T>(key : K) : IJoinSelectable<T>;    
+    OrderDescendingBy<K extends keyof T>(key : K) : IJoinSelectable<T>;
+    Take(quantity : number) : IJoinSelectable<T>;
+    Offset(offset : number) : IJoinSelectable<T>;
+    Join<K extends keyof T>(key : K) : IJoinSelectable<T>;
+    Limit(limit : number) : IJoinSelectable<T>;
+    CountAsync() : Promise<number>;
+    ToListAsync() : Promise<T[]>;
+    FirstOrDefaultAsync() : Promise<T | undefined>; 
 }
 
 

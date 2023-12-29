@@ -29,5 +29,6 @@ export default abstract class AbstractSet<T extends object> implements IDBSet<T>
     abstract AndField<K extends keyof T>(field: K): IFluentField<T, K, AbstractSet<T>> ;
     abstract OrField<K extends keyof T>(field: K): IFluentField<T, K, AbstractSet<T>>;
     abstract LoadRelationOn<K extends keyof T>(field: K): AbstractSet<T> ;
+    
 
 }
