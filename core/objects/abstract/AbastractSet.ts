@@ -18,7 +18,7 @@ export default abstract class AbstractSet<T extends object> implements IDBSet<T>
     abstract OrderDescendingBy<K extends keyof T>(key: K): AbstractSet<T>;
     abstract Take(quantity: number): AbstractSet<T> ;
     abstract Offset(offset: number): AbstractSet<T>;
-    abstract Join<K extends keyof T>(key: K): AbstractSet<T> ;
+    abstract Load<K extends keyof T>(key: K): AbstractSet<T> ;
     abstract Limit(limit: number): AbstractSet<T> ;
     abstract CountAsync(): Promise<number> ;
     abstract ToListAsync(): Promise<T[]> ;

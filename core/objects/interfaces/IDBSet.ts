@@ -18,7 +18,7 @@ export interface IBaseSet<T extends Object>
     OrderDescendingBy<K extends keyof T>(key : K) : IBaseSet<T>;
     Take(quantity : number) : IBaseSet<T>;
     Offset(offset : number) : IBaseSet<T>;
-    Join<K extends keyof T>(key : K) : IBaseSet<T>;
+    Load<K extends keyof T>(key : K) : IBaseSet<T>;
     Limit(limit : number) : IBaseSet<T>;
     CountAsync() : Promise<number>;
     ToListAsync() : Promise<T[]>;

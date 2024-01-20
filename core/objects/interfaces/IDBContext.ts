@@ -10,12 +10,18 @@ export interface IBaseContext
 
 export interface IThreeQueryableObject
 {   
-    Join(...args : {new (...args : any[]) : Object}[]) : IJoiningQuery;   
+    From<T extends Object>(arg : {new (...args : any[]) : T}) : IJoiningQuery;   
 } 
+
+export interface IJoining
+{
+    On<T extends Object, U extends Object>(cT : {new (...args : any[]) : T}, cKey : keyof T, uT : {new (...args : any[]) : U}, uKey : keyof U) : IJoiningQuery;
+}
 
 export interface IJoiningQuery
 {
-    On<C extends Object, U extends Object>(cT : {new (...args : any[]) : C}, cKey : keyof C, uT : {new (...args : any[]) : U}, uKey : keyof U) : IJoiningQuery;
+    InnerJoin(arg : {new (...args : any[]) : Object}) : IJoining; 
+    LeftJoin(arg : {new (...args : any[]) : Object}) : IJoining;
     Where<C extends Object, K extends keyof C>(cT : {new (...args : any[]) : C}, statement : IStatement<C, K>) :  IJoiningQuery;
     And<C extends Object, K extends keyof C>(cT : {new (...args : any[]) : C}, statement : IStatement<C, K>) :  IJoiningQuery;
     Or<C extends Object, K extends keyof C>(cT : {new (...args : any[]) : C}, statement : IStatement<C, K>) :  IJoiningQuery;   
@@ -26,12 +32,11 @@ export interface IJoinSelectable<T>
 {
     ToListAsync() : Promise<T[]>;
     FirstOrDefaultAsync() : Promise<T | undefined>;
-    Join<K extends keyof T>(key : K) : IJoinSelectable<T>;
+    Load<K extends keyof T>(key : K) : IJoinSelectable<T>;
     OrderBy<K extends keyof T>(key : K) : IJoinSelectable<T>;    
     OrderDescendingBy<K extends keyof T>(key : K) : IJoinSelectable<T>;
     Take(quantity : number) : IJoinSelectable<T>;
-    Offset(offset : number) : IJoinSelectable<T>;
-    Join<K extends keyof T>(key : K) : IJoinSelectable<T>;
+    Offset(offset : number) : IJoinSelectable<T>;    
     Limit(limit : number) : IJoinSelectable<T>;
     CountAsync() : Promise<number>;
     ToListAsync() : Promise<T[]>;

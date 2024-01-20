@@ -8,7 +8,7 @@ export default abstract class AbstractContext implements IDBContext
     abstract UpdateDatabaseAsync(): Promise<void> ;
     abstract ExecuteNonQuery(query: string): Promise<void> ;
     abstract ExecuteQuery(query: string): Promise<any> ;
-    abstract Join(...args: (new (...args: any[]) => Object)[]): IJoiningQuery ;
+    abstract From<T extends Object>(arg: (new (...args: any[]) => T)): IJoiningQuery;
     
 }
 
