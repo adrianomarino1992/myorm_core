@@ -19,6 +19,8 @@ export interface IBaseSet<T extends Object>
     Take(quantity : number) : IBaseSet<T>;
     Offset(offset : number) : IBaseSet<T>;
     Load<K extends keyof T>(key : K) : IBaseSet<T>;
+    ReloadCachedRealitionsAsync<K extends keyof T>(obj : T[], keys : K[]) : Promise<void>;
+    ReloadCachedRealitionsAsync<K extends keyof T>(obj : T, keys : K[]) : Promise<void>;
     Limit(limit : number) : IBaseSet<T>;
     CountAsync() : Promise<number>;
     ToListAsync() : Promise<T[]>;
