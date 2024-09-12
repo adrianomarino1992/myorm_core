@@ -1,3 +1,4 @@
+import DBOperationLogHandler from '../handlers/DBOperationLogHandler';
 import IBaseSet from './IDBSet';
 import IStatement from './IStatement';
 export interface IBaseContext
@@ -5,7 +6,8 @@ export interface IBaseContext
     Collection<T extends Object>(cTor : {new (...args : any[]) : T}) : IBaseSet<T> | undefined;
     UpdateDatabaseAsync() : Promise<void>;
     ExecuteNonQuery(query : string) : Promise<void>;
-    ExecuteQuery(query : string) : Promise<any>;        
+    ExecuteQuery(query : string) : Promise<any>; 
+    SetLogger(logger: DBOperationLogHandler): void;       
 }
 
 export interface IThreeQueryableObject
@@ -39,6 +41,7 @@ export interface IJoinSelectable<T>
     Offset(offset : number) : IJoinSelectable<T>;    
     Limit(limit : number) : IJoinSelectable<T>;
     CountAsync() : Promise<number>;
+    AsUntrackeds() : IJoinSelectable<T>;
     ToListAsync() : Promise<T[]>;
     FirstOrDefaultAsync() : Promise<T | undefined>; 
 }

@@ -1,28 +1,29 @@
 import IStatement from "./IStatement";
 
 
-export interface IBaseSet<T extends Object>
+export interface IBaseSet<T extends Object, R extends IBaseSet<T, R>>
 {
     AddAsync(obj : T) : Promise<T>;
     AddObjectAndRelationsAsync(obj : T, relations : (keyof T)[]) : Promise<T>;
     UpdateAsync(obj : T) : Promise<T>;
     UpdateSelectionAsync() : Promise<void>;
-    Set<K extends keyof T>(key: K, value : T[K]) : IBaseSet<T>;
+    Set<K extends keyof T>(key: K, value : T[K]) : R;
     UpdateObjectAndRelationsAsync(obj : T, relations : (keyof T)[]) : Promise<T>;
     DeleteAsync(obj : T) : Promise<T>;
     DeleteSelectionAsync() : Promise<void>;
-    Where<K extends keyof T>(statement : IStatement<T, K>) : IBaseSet<T>;
-    And<K extends keyof T>(statement : IStatement<T, K>) : IBaseSet<T>;
-    Or<K extends keyof T>(statement : IStatement<T, K>) : IBaseSet<T>;
-    OrderBy<K extends keyof T>(key : K) : IBaseSet<T>;    
-    OrderDescendingBy<K extends keyof T>(key : K) : IBaseSet<T>;
-    Take(quantity : number) : IBaseSet<T>;
-    Offset(offset : number) : IBaseSet<T>;
-    Load<K extends keyof T>(key : K) : IBaseSet<T>;
+    Where<K extends keyof T>(statement : IStatement<T, K>) : R;
+    And<K extends keyof T>(statement : IStatement<T, K>) : R;
+    Or<K extends keyof T>(statement : IStatement<T, K>) : R;
+    OrderBy<K extends keyof T>(key : K) : R;    
+    OrderDescendingBy<K extends keyof T>(key : K) : R;
+    Take(quantity : number) : R;
+    Offset(offset : number) : R;
+    Load<K extends keyof T>(key : K) : R;
     ReloadCachedRealitionsAsync<K extends keyof T>(obj : T[], keys : K[]) : Promise<void>;
     ReloadCachedRealitionsAsync<K extends keyof T>(obj : T, keys : K[]) : Promise<void>;
-    Limit(limit : number) : IBaseSet<T>;
+    Limit(limit : number) : R;
     CountAsync() : Promise<number>;
+    AsUntrackeds() : R;
     ToListAsync() : Promise<T[]>;
     FirstOrDefaultAsync() : Promise<T | undefined>;
     CleanQueryTree() : void;
@@ -52,4 +53,4 @@ export interface IFluentField<T extends Object, K extends keyof T, R extends IDB
     IsNull() : R;    
 }
 
-export default interface IDBSet<T extends object> extends IBaseSet<T>, IFluentQueryableObject<T, IDBSet<T>>{}
+export default interface IDBSet<T extends object> extends IBaseSet<T, IDBSet<T>>, IFluentQueryableObject<T, IDBSet<T>>{}

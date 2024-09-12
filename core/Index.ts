@@ -14,7 +14,7 @@ import { IJoiningQuery } from "./objects/interfaces/IDBContext";
 import IStatement from "./objects/interfaces/IStatement";
 import { IThreeQueryableObject } from "./objects/interfaces/IDBContext";
 import { Operation } from "./objects/interfaces/IStatement";
-
+import DBOperationLogHandler, {LogType} from './objects/handlers/DBOperationLogHandler';
 
 export {AbstractSet}
 export {AbstractConnection}
@@ -34,3 +34,5 @@ export {IJoiningQuery}
 export {IStatement}
 export {IThreeQueryableObject}
 export {Operation}
+export {DBOperationLogHandler}
+export {LogType}
