@@ -23,6 +23,8 @@ export interface IBaseSet<T extends Object, R extends IBaseSet<T, R>>
     ReloadCachedRealitionsAsync<K extends keyof T>(obj : T, keys : K[]) : Promise<void>;
     Limit(limit : number) : R;
     CountAsync() : Promise<number>;
+    ExistsAsync() : Promise<boolean>;
+    SelectAsync<U extends keyof T>(keys: U[]) : Promise<{[K in U] : T[K]}[]>;
     AsUntrackeds() : R;
     ToListAsync() : Promise<T[]>;
     FirstOrDefaultAsync() : Promise<T | undefined>;

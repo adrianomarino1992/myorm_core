@@ -24,6 +24,8 @@ export default abstract class AbstractSet<T extends object> implements IDBSet<T>
     abstract ReloadCachedRealitionsAsync<K extends keyof T>(obj : T, keys : K[]) : Promise<void>;
     abstract Limit(limit: number): IDBSet<T> ;
     abstract CountAsync(): Promise<number> ;
+    abstract ExistsAsync() : Promise<boolean>;
+    abstract SelectAsync<U extends keyof T>(keys: U[]) : Promise<{[K in U] : T[K]}[]>;
     abstract ToListAsync(): Promise<T[]> ;
     abstract FirstOrDefaultAsync(): Promise<T | undefined> ;
     abstract CleanQueryTree(): void ;

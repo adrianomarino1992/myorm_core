@@ -42,6 +42,8 @@ export interface IJoinSelectable<T>
     Limit(limit : number) : IJoinSelectable<T>;
     CountAsync() : Promise<number>;
     AsUntrackeds() : IJoinSelectable<T>;
+    ExistsAsync() : Promise<boolean>;
+    SelectAsync<U extends keyof T>(keys: U[]) : Promise<{[K in U] : T[K]}[]>;
     ToListAsync() : Promise<T[]>;
     FirstOrDefaultAsync() : Promise<T | undefined>; 
 }
