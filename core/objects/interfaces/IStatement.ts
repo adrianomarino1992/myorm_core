@@ -4,7 +4,7 @@ export default interface IStatement<T, K extends keyof T>
 {
     Field : K, 
     Kind? : Operation, 
-    Value : T[K]
+    Value : T[K] | undefined
 }
 
 
