@@ -8,7 +8,7 @@ export default abstract class AbstractFluentField<T extends object, K extends ke
     abstract IsNotEqualTo(value: T[K]): P ;
     abstract IsSmallerThan(value: T[K]): P ;
     abstract IsInsideIn(value: T[K][]): P ;
-    abstract Constains(value: T[K]): P ;
+    abstract Contains(value: T[K]): P ;
     abstract StartsWith(value: T[K]): P ;
     abstract EndsWith(value: T[K]): P ;
     abstract IsNull(): P ;

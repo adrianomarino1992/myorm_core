@@ -49,7 +49,7 @@ export interface IFluentField<T extends Object, K extends keyof T, R extends IDB
     IsNotEqualTo(value : T[K]) : R;
     IsSmallerThan(value : T[K]) : R;
     IsInsideIn(value : T[K][]) : R;
-    Constains(value : T[K]) : R;
+    Contains(value : T[K]) : R;
     StartsWith(value : T[K]) : R;
     EndsWith(value : T[K]) : R;
     IsNull() : R;    
