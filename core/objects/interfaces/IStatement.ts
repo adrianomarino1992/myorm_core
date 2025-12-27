@@ -14,7 +14,7 @@ export enum Operation
     NOTEQUALS = '!=',
     STARTWITH = '%_',
     ENDWITH = '_%',
-    CONSTAINS = '%_%',
+    CONTAINS = '%_%',
     GREATHER = '>',
     GREATHEROREQUALS = '>=',
     SMALLER = '<',
