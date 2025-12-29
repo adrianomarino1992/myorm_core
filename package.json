@@ -1,6 +1,6 @@
 {
   "name": "myorm_core",
-  "version": "8.3.0",
+  "version": "8.3.1",
   "description": "interfaces and abstract classes of myorm",
   "main": "./lib/Index.js",
   "types": "./lib/Index.d.ts",
@@ -25,5 +25,4 @@
     "url": "https://github.com/adrianomarino1992/myorm_core/issues"
   },
   "homepage": "https://github.com/adrianomarino1992/myorm_core#readme"
-  
 }
