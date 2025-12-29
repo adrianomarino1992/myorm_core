@@ -24,8 +24,6 @@
   "bugs": {
     "url": "https://github.com/adrianomarino1992/myorm_core/issues"
   },
-  "homepage": "https://github.com/adrianomarino1992/myorm_core#readme",
-  "dependencies": {
-    "reflect-metadata": "^0.1.13"
-  }
+  "homepage": "https://github.com/adrianomarino1992/myorm_core#readme"
+  
 }
