@@ -33,10 +33,10 @@ export default interface IDBManager
 
     BeginTransactionAsync() : Promise<void>;
 
-    SavePointAsync() : Promise<void>;
-
     CommitAsync() : Promise<void>;
+
+    RollBackAsync(toSavepoint?: string): Promise<void>;
     
-    RollBackAsync() : Promise<void>;
+    SavePointAsync(savepoint: string): Promise<void>;
     
 }

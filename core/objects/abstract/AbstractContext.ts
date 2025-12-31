@@ -13,8 +13,8 @@ export default abstract class AbstractContext implements IDBContext
     abstract SetLogger(logger: DBOperationLogHandler): void;  
     abstract BeginTransactionAsync(): Promise<void>;
     abstract CommitAsync(): Promise<void>;
-    abstract RollBackAsync(): Promise<void>;
-    abstract SavePointAsync(): Promise<void>;     
+    abstract RollBackAsync(toSavepoint?: string): Promise<void>;
+    abstract SavePointAsync(savepoint: string): Promise<void>;    
 
     
 }

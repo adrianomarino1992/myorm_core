@@ -8,10 +8,10 @@ export interface IBaseContext
     ExecuteNonQuery(query : string) : Promise<void>;
     ExecuteQuery(query : string) : Promise<any>; 
     SetLogger(logger: DBOperationLogHandler): void;   
-    BeginTransactionAsync() : Promise<void>;
-    SavePointAsync() : Promise<void>;
-    CommitAsync() : Promise<void>;
-    RollBackAsync() : Promise<void>;    
+    BeginTransactionAsync() : Promise<void>;   
+    CommitAsync() : Promise<void>;       
+    RollBackAsync(toSavepoint?: string): Promise<void>;
+    SavePointAsync(savepoint: string): Promise<void>;
 }
 
 export interface IThreeQueryableObject

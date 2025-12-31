@@ -15,7 +15,7 @@ export default abstract class AbstractConnection implements IDBConnection
     abstract ExecuteAsync(query: string): Promise<any> ;
     abstract BeginTransactionAsync(): Promise<void>;
     abstract CommitAsync(): Promise<void>;
-    abstract RollBackAsync(): Promise<void>;
-    abstract SavePointAsync(): Promise<void>;
+    abstract RollBackAsync(toSavepoint?: string): Promise<void>;
+    abstract SavePointAsync(savepoint: string): Promise<void>;
     
 }
