@@ -16,5 +16,9 @@ export default abstract class AbstractManager implements IDBManager
     abstract UpdateDatabaseForEntityAsync(cTor: Function): Promise<void> ;
     abstract ExecuteNonQueryAsync(query: string): Promise<void> ;
     abstract ExecuteAsync(query: string): Promise<any> ;
+    abstract BeginTransactionAsync(): Promise<void>;
+    abstract CommitAsync(): Promise<void>;
+    abstract RollBackAsync(): Promise<void>;
+    abstract SavePointAsync(): Promise<void>;
     
 }

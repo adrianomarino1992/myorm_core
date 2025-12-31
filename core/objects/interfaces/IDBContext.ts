@@ -7,7 +7,11 @@ export interface IBaseContext
     UpdateDatabaseAsync() : Promise<void>;
     ExecuteNonQuery(query : string) : Promise<void>;
     ExecuteQuery(query : string) : Promise<any>; 
-    SetLogger(logger: DBOperationLogHandler): void;       
+    SetLogger(logger: DBOperationLogHandler): void;   
+    BeginTransactionAsync() : Promise<void>;
+    SavePointAsync() : Promise<void>;
+    CommitAsync() : Promise<void>;
+    RollBackAsync() : Promise<void>;    
 }
 
 export interface IThreeQueryableObject

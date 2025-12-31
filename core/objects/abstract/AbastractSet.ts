@@ -6,11 +6,11 @@ export default abstract class AbstractSet<T extends object> implements IDBSet<T>
     abstract AddAsync(obj: T): Promise<T> ;
     abstract AddObjectAndRelationsAsync(obj: T, relations: (keyof T)[]): Promise<T> ;
     abstract UpdateAsync(obj: T): Promise<T> ;
-    abstract UpdateSelectionAsync(): Promise<void> ;
+    abstract UpdateSelectionAsync(): Promise<number> ;
     abstract Set<K extends keyof T>(key: K, value: T[K]): IDBSet<T>;
     abstract UpdateObjectAndRelationsAsync(obj: T, relations: (keyof T)[]): Promise<T> ;
     abstract DeleteAsync(obj: T): Promise<T> ;
-    abstract DeleteSelectionAsync(): Promise<void> ;
+    abstract DeleteSelectionAsync(): Promise<number> ;
     abstract Where<K extends keyof T>(statement: IStatement<T, K>): IDBSet<T> ;
     abstract And<K extends keyof T>(statement: IStatement<T, K>): IDBSet<T> ;
     abstract Or<K extends keyof T>(statement: IStatement<T, K>): IDBSet<T>;

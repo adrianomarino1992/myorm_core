@@ -10,7 +10,11 @@ export default abstract class AbstractContext implements IDBContext
     abstract ExecuteNonQuery(query: string): Promise<void> ;
     abstract ExecuteQuery(query: string): Promise<any> ;
     abstract From<T extends Object>(arg: (new (...args: any[]) => T)): IJoiningQuery;
-    abstract SetLogger(logger: DBOperationLogHandler): void;       
+    abstract SetLogger(logger: DBOperationLogHandler): void;  
+    abstract BeginTransactionAsync(): Promise<void>;
+    abstract CommitAsync(): Promise<void>;
+    abstract RollBackAsync(): Promise<void>;
+    abstract SavePointAsync(): Promise<void>;     
 
     
 }

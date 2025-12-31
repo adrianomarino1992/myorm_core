@@ -6,11 +6,11 @@ export interface IBaseSet<T extends Object, R extends IBaseSet<T, R>>
     AddAsync(obj : T) : Promise<T>;
     AddObjectAndRelationsAsync(obj : T, relations : (keyof T)[]) : Promise<T>;
     UpdateAsync(obj : T) : Promise<T>;
-    UpdateSelectionAsync() : Promise<void>;
+    UpdateSelectionAsync() : Promise<number>;
     Set<K extends keyof T>(key: K, value : T[K]) : R;
     UpdateObjectAndRelationsAsync(obj : T, relations : (keyof T)[]) : Promise<T>;
     DeleteAsync(obj : T) : Promise<T>;
-    DeleteSelectionAsync() : Promise<void>;
+    DeleteSelectionAsync() : Promise<number>;
     Where<K extends keyof T>(statement : IStatement<T, K>) : R;
     And<K extends keyof T>(statement : IStatement<T, K>) : R;
     Or<K extends keyof T>(statement : IStatement<T, K>) : R;
@@ -29,6 +29,7 @@ export interface IBaseSet<T extends Object, R extends IBaseSet<T, R>>
     ToListAsync() : Promise<T[]>;
     FirstOrDefaultAsync() : Promise<T | undefined>;
     CleanQueryTree() : void;
+    
 }
 
 

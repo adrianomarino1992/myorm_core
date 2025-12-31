@@ -13,5 +13,9 @@ export default interface IDBConnection
     CloseAsync() : void;
     ExecuteNonQueryAsync(query : string) : Promise<void>;    
     ExecuteAsync(query : string) : Promise<any>;
+    BeginTransactionAsync() : Promise<void>;
+    SavePointAsync() : Promise<void>;
+    CommitAsync() : Promise<void>;
+    RollBackAsync() : Promise<void>;
      
 }
