@@ -29,6 +29,7 @@ export interface IBaseSet<T extends Object, R extends IBaseSet<T, R>>
     ToListAsync() : Promise<T[]>;
     FirstOrDefaultAsync() : Promise<T | undefined>;
     CleanQueryTree() : void;
+    GetTypeMapping() : ITypeMapping<T>;
     
 }
 
@@ -57,3 +58,10 @@ export interface IFluentField<T extends Object, K extends keyof T, R extends IDB
 }
 
 export default interface IDBSet<T extends object> extends IBaseSet<T, IDBSet<T>>, IFluentQueryableObject<T, IDBSet<T>>{}
+
+export interface ITypeMapping<T>
+{
+    Columns : {[U in keyof T] : string};
+    Table: string;
+    EvaluateStatement : <U extends keyof T>(statement: IStatement<T, U>) => string;
+}

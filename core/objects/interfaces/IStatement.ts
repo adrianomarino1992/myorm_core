@@ -20,3 +20,4 @@ export enum Operation
     SMALLER = '<',
     SMALLEROREQUALS = '<='
 }
+

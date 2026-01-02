@@ -6,7 +6,7 @@ import AbstractManager from "./objects/abstract/AbstractManager";
 import IDBConnection from "./objects/interfaces/IDBConnection";
 import IDBContext, {IBaseContext} from "./objects/interfaces/IDBContext";
 import IDBManager from "./objects/interfaces/IDBManager";
-import IDBSet, {IBaseSet} from "./objects/interfaces/IDBSet";
+import IDBSet, {IBaseSet, ITypeMapping} from "./objects/interfaces/IDBSet";
 import { IFluentField } from "./objects/interfaces/IDBSet";
 import { IFluentQueryableObject } from "./objects/interfaces/IDBSet";   
 import { IJoinSelectable } from "./objects/interfaces/IDBContext";  
@@ -26,6 +26,7 @@ export {IDBContext}
 export {IBaseContext}
 export {IDBManager}
 export {IDBSet}
+export {ITypeMapping}
 export {IBaseSet}
 export {IFluentField}
 export {IFluentQueryableObject}

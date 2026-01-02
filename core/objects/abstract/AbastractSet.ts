@@ -1,4 +1,4 @@
-import IDBSet, { IFluentField, IFluentQueryableObject } from "../interfaces/IDBSet";
+import IDBSet, { IFluentField, IFluentQueryableObject, ITypeMapping } from "../interfaces/IDBSet";
 import IStatement from "../interfaces/IStatement";
 
 export default abstract class AbstractSet<T extends object> implements IDBSet<T> 
@@ -33,6 +33,7 @@ export default abstract class AbstractSet<T extends object> implements IDBSet<T>
     abstract WhereAsString(where: string): IDBSet<T> ;
     abstract AndField<K extends keyof T>(field: K): IFluentField<T, K, IDBSet<T>> ;
     abstract OrField<K extends keyof T>(field: K): IFluentField<T, K, IDBSet<T>>;
-    abstract LoadRelationOn<K extends keyof T>(field: K): IDBSet<T> ;    
+    abstract LoadRelationOn<K extends keyof T>(field: K): IDBSet<T> ;   
+    abstract GetTypeMapping(): ITypeMapping<T>; 
 
 }
