@@ -12,6 +12,8 @@ export interface IBaseContext
     CommitAsync() : Promise<void>;       
     RollBackAsync(toSavepoint?: string): Promise<void>;
     SavePointAsync(savepoint: string): Promise<void>;
+    SaveChangesAsync(): Promise<void>;
+    DiscartChangesAsync(): Promise<void>;
 }
 
 export interface IThreeQueryableObject

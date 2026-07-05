@@ -15,6 +15,8 @@ export default abstract class AbstractContext implements IDBContext
     abstract CommitAsync(): Promise<void>;
     abstract RollBackAsync(toSavepoint?: string): Promise<void>;
     abstract SavePointAsync(savepoint: string): Promise<void>;    
+    abstract SaveChangesAsync(): Promise<void>;    
+    abstract DiscartChangesAsync(): Promise<void>;    
 
     
 }
